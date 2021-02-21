@@ -32,22 +32,23 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   
-  let grade = 0;
-  
+  let grade;
+  let score = 0
   for (i = 0; i < questions.length; i++) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      grade++;
+      score++;
     }
   }
 
-  console.log(`>>> Overall Grade: ${grade/5*100}% (${grade} of 5 responses correct) <<<`)
-  if ( grade >= 4) {
+  console.log(`>>> Overall Grade: ${score/5*100}% (${score} of 5 responses correct) <<<`)
+  if ( score >= 4) {
     console.log(`>>> Status: PASSED <<<`);
   }
   else {
     console.log(`>>> Status: FAILED <<<`);
   }
-  
+  grade = score/5*100
+  return grade;
 }
 
 function runProgram() {
